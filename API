@@ -1,0 +1,55 @@
+-------------------------------------------------
+ Trie Class API
+-------------------------------------------------
+
+--
+ Functions:
+--
+
+  void Trie ([ array words ])
+    Constructor; Creates a Trie object. If an array parameter is given, the
+    included words are added to the dictionary.
+  
+  void Trie::addWord ( string word )
+    Adds a word to the dictionary.
+  
+  void Trie::addWords ( array words )
+    Adds an array of words to the dictionary.
+  
+  void Trie::removeWord ( string word )
+    Removes a words from the dictionary.
+  
+  void Trie::removeWords ( array words )
+    Removes an array of words from the dictionary.
+  
+  bool Trie::isValidWord ( string word )
+    Tests if a given word is in the dictionary.
+  
+  bool Trie::isValidPrefix ( string prefix[, bool ignore_whole_word = false ])
+    Tests if there are words in the dictionary that begin with a given prefix.
+    If the second parameter is FALSE, then a word match will also return true,
+    not just a prefix match. Setting the second parameter to TRUE will override
+    that behavior.
+  
+  mixed Trie::dump ( int format[, bool return = false ])
+    Used for fetching or outputting raw data from the dictionary. For possible
+    format values, see the section Constants below.
+  
+  
+--
+ Constants:
+--
+
+  Trie::SERIAL
+    Used to set the behavior of Trie::dump() to serialize the data.
+  
+  Trie::JSON
+    Used to set the behavior of Trie::dump() to JSON encode the data.
+  
+  Trie::EXPORT
+    Used to set the behavior of Trie::dump() to export the raw data. (Cannot be
+    used to output, only returns).
+  
+  Trie::WORDS
+    Used to set the behavior of Trie::dump() to create a list of words.
+
