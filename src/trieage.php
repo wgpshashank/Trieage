@@ -284,7 +284,7 @@ $trie = new Trie(array(
 $trie->removeWords(array('bans', 'ban'));
 
 $trie->dump(Trie::WORDS);
-$trie->dump(Trie::PRINTR);
+$trie->dump(Trie::JSON);
 
 
 

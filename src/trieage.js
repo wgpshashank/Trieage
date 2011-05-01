@@ -120,7 +120,7 @@ var Trie = function(data) {
 	 * @return  bool
 	 */
 	self.isValidWord = function(word) {
-		if (typeof word !== 'string' || word.length) { return false; }
+		if (typeof word !== 'string' || ! word.length) { return false; }
 		// Make lowercase (for case-insensitive matching)
 		word = word.toLowerCase();
 		// Get a reference to the top level of the dictionary
@@ -237,15 +237,17 @@ containsWords = function(arr, ignoreWholeWord) {
  * @param   string    a prefix to add to all words
  * @return  array
  */
-getWords = function(arr, prefix) {
+getWords = function(dict, prefix, result) {
 	var
-	result = [ ],
+	result = result || [ ],
 	prefix = prefix || '';
-	for (var i = 0, c = arr.length; i < c; i++) {
-		if (i === 0) {
-			result.push(prefix);
-		} else {
-			result.concat(getWords(arr[i], prefix + i));
+	for (var i in dict) {
+		if (dict.hasOwnProperty(i)) {
+			if (i === '0' && dict[i]) {
+				result.push(prefix);
+			} else {
+				getWords(dict[i], prefix + i, result);
+			}
 		}
 	}
 	return result;
@@ -259,7 +261,7 @@ getWords = function(arr, prefix) {
  * @return  object
  */
 basicClone = function(obj) {
-	if (typeof obj !== 'object') { return obj; }
+	if (typeof obj !== 'object' || obj === null) { return obj; }
 	var obj2 = { };
 	for (var i in obj) {
 		if (obj.hasOwnProperty(i)) {
@@ -1171,8 +1173,6 @@ var phpjs = {
 	}
 
 };
-
-}());
 
 }(window));
 

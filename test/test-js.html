@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	
+	<!-- Data Tags -->
+	<title>Test of JavaScript Trie Structure</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+</head>
+<body>
+	
+	<div id="wrapper">
+		<h4>Trie structure test</h4>
+		
+		<div>Adds some words to start with...</div>
+		<input type="button" id="populateButton" value="Populate Trie" />
+		
+		<br /><br />
+		
+		<div>Calls: <code>trie.addWord(...);</code></div>
+		<input type="text" id="addWordField" value="" />
+		<input type="button" id="addWordButton" value="Add Word" />
+		
+		<br /><br />
+		
+		<div>Calls: <code>trie.removeWord(...);</code></div>
+		<input type="text" id="removeWordField" value="" />
+		<input type="button" id="removeWordButton" value="Remove Word" />
+		
+		<br /><br />
+		
+		<div>Calls: <code>console.log(trie.lookupWord(...) ? 'Found' : 'Not Found');</code></div>
+		<input type="text" id="lookupField" value="" />
+		<input type="button" id="lookupButton" value="Lookup Word" />
+		
+		<br /><br />
+		
+		<div>Calls: <code>alert(trie.dump(Trie.WORDS, true));</code></div>
+		<input type="button" id="viewWordsButton" value="View Words" />
+		
+		<br /><br />
+		
+		<div>Calls: <code>alert(trie.dump(Trie.JSON, true));</code></div>
+		<input type="button" id="viewDictButton" value="View Dictionary Structure" />
+	</div>
+	
+	<!-- JavaScript Includes -->
+	<script type="text/javascript" charset="utf-8" src="../src/trieage.js"></script>
+	<script type="text/javascript">
+	<!--
+	
+		var trie = new Trie();
+		
+		function val(id) {
+			var value = document.getElementById(id).value;
+			document.getElementById(id).value = '';
+			return (value === '') ? false : value;
+		}
+		
+		document.getElementById('populateButton').onclick = function() {
+			trie.addWords([ 'hi', 'hai', 'hello', 'help', 'helper', 'apple', 'applesauce', 'banana', 'green', 'great', 'greater' ]);
+		};
+		
+		document.getElementById('addWordButton').onclick = function() {
+			trie.addWord(val('addWordField'));
+		};
+		
+		document.getElementById('removeWordButton').onclick = function() {
+			trie.removeWord(val('removeWordField'));
+		};
+		
+		document.getElementById('lookupButton').onclick = function() {
+			console.log(trie.isValidWord(val('lookupField')) ? 'Found' : 'Not Found');
+		};
+		
+		document.getElementById('viewWordsButton').onclick = function() {
+			var words = trie.dump(Trie.WORDS, true).join("\n");
+			alert(words + "\n\n" + words.length + ' bytes');
+		};
+		
+		document.getElementById('viewDictButton').onclick = function() {
+			var jsonStr = trie.dump(Trie.JSON, true);
+			alert(jsonStr + "\n\n" + jsonStr.length + ' bytes');
+		};
+	
+	//-->
+	</script>
+	
+</body>
+</html>
