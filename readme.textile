@@ -11,7 +11,7 @@ Dual licensed under MIT and GPL
 <pre><code>// PHP
 
 $trie = new Trie(array(
-	'app', 'apps', 'apple', 'apples', 'bob', 'banana', 'bandana', 'ban', 'bans'
+    'app', 'apps', 'apple', 'apples', 'bob', 'banana', 'bandana', 'ban', 'bans'
 ));
 
 $trie->removeWords(array('bans', 'ban'));
@@ -21,7 +21,7 @@ $trie->dump(Trie::JSON);
 // JavaScript
 
 var trie = new Trie([
-	'app', 'apps', 'apple', 'apples', 'bob', 'banana', 'bandana', 'ban', 'bans'
+    'app', 'apps', 'apple', 'apples', 'bob', 'banana', 'bandana', 'ban', 'bans'
 ]);
 
 trie.removeWords(['bans', 'ban']);
