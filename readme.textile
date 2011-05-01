@@ -1,0 +1,49 @@
+h1. Trieage
+
+h3. A multi-language, uniform API Trie data storage model
+
+Author: James Brumond
+Version 0.1.1-dev
+
+Copyright 2011 James Brumond
+Dual licensed under MIT and GPL
+
+<pre><code>// PHP
+
+$trie = new Trie(array(
+	'app', 'apps', 'apple', 'apples', 'bob', 'banana', 'bandana', 'ban', 'bans'
+));
+
+$trie->removeWords(array('bans', 'ban'));
+
+$trie->dump(Trie::JSON);
+
+// JavaScript
+
+var trie = new Trie([
+	'app', 'apps', 'apple', 'apples', 'bob', 'banana', 'bandana', 'ban', 'bans'
+]);
+
+trie.removeWords(['bans', 'ban']);
+
+trie.dump(Trie.JSON);</code></pre>
+
+h2. What is it?
+
+First of all, you should know what a trie storage model is, so go "here":http://en.wikipedia.org/wiki/Trie
+
+After you've looked that over, Trieage is a set of classes written in several common languages to implement trie-style data storage. At the moment, the following languages are supported:
+
+* PHP
+* JavaScript
+
+And these ones are being worked on:
+
+* Python
+
+All of the classes in each language follow the same API and data structure, so changing from one to the other is seamless. Also, they support various forms of serialized output (PHP Serialize and JSON, Python's Pickle structure may be coming soon) so sending data from one to the other is also quite simple.
+
+h2. Contributing
+
+If you want to help, the best thing right now would be to donate code. Help adding more languages would be greatly appreciated, as would help finishing python support. Beyond that, there are always the usual ways like reporting bugs and such.
+
